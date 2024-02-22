@@ -47,7 +47,7 @@ routes.post("/signup", async (req, res) => {
 });
 
 routes.get("/", (req, res) => {
-  res.sendFile("../payday2/public/index.html", { root: __dirname });
+  res.send("Working");
 });
 
 routes.post("/loanAmount", async (req, res) => {
