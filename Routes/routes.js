@@ -21,7 +21,7 @@ const transporter = nodemailer.createTransport({
 const routes = new express.Router();
 
 // for the creating the new note
-routes.post("/login", cors(corsOptions), async (req, res) => {
+routes.post("/login", cors(corsOptions), (req, res) => {
   try {
     const { username, password } = req.body;
 
@@ -37,7 +37,7 @@ routes.post("/login", cors(corsOptions), async (req, res) => {
   }
 });
 
-routes.post("/signup", cors(corsOptions), async (req, res) => {
+routes.post("/signup", cors(corsOptions), (req, res) => {
   try {
     const { username, phonenumber, password } = req.body;
     let adata = new userSignup({
@@ -56,7 +56,7 @@ routes.get("/", cors(corsOptions), (req, res) => {
   res.send("Working");
 });
 
-routes.post("/loanAmount", cors(corsOptions), async (req, res) => {
+routes.post("/loanAmount", cors(corsOptions), (req, res) => {
   try {
     const {
       Address,
