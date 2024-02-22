@@ -18,7 +18,7 @@ app.use(cookieparser());
 
 app.use(
   cors({
-    origin: "https://paydaytest.vercel.app/",
+    origin: "https://payday1.vercel.app/",
   })
 );
 
