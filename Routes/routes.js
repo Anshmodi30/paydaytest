@@ -3,6 +3,12 @@ const userLogin = require("../Models/userLogin.js");
 const userSignup = require("../Models/userSignup.js");
 const userLoanAmount = require("../Models/userLoanAmount.js");
 const nodemailer = require("nodemailer");
+var cors = require("cors");
+
+var corsOptions = {
+  origin: "https://payday1.vercel.app",
+  optionsSuccessStatus: 200,
+};
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -15,7 +21,7 @@ const transporter = nodemailer.createTransport({
 const routes = new express.Router();
 
 // for the creating the new note
-routes.post("/login", async (req, res) => {
+routes.post("/login", cors(corsOptions), async (req, res) => {
   try {
     const { username, password } = req.body;
 
@@ -31,7 +37,7 @@ routes.post("/login", async (req, res) => {
   }
 });
 
-routes.post("/signup", async (req, res) => {
+routes.post("/signup", cors(corsOptions), async (req, res) => {
   try {
     const { username, phonenumber, password } = req.body;
     let adata = new userSignup({
@@ -46,11 +52,11 @@ routes.post("/signup", async (req, res) => {
   }
 });
 
-routes.get("/", (req, res) => {
+routes.get("/", cors(corsOptions), (req, res) => {
   res.send("Working");
 });
 
-routes.post("/loanAmount", async (req, res) => {
+routes.post("/loanAmount", cors(corsOptions), async (req, res) => {
   try {
     const {
       Address,
