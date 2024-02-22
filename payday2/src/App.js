@@ -24,11 +24,13 @@ function App() {
           {/* <Route index exact element={<Home />} /> */}
           <Route path="Login" element={<Login />} />
           <Route path="Signup" element={<Signup />} />
-          <Route path="ApplyNow" element={<ApplyNow />} />
-          {/* <Route path="" element={<Step1 />} /> */}
-          <Route path="/step2" element={<Step2 />} />
+          <Route path="ApplyNow" element={<ApplyNow />}>
+            <Route path="" element={<Step1 />} />
+            <Route path="step2" element={<Step2 />} />
+          </Route>
           <Route exact path="/about" element={<AboutUs />} />
           <Route exact path="/contact" element={<ContactUs />} />
+
           <Route exact path="/Loan" element={<Quickloan />} />
         </Routes>
         <Footer />
